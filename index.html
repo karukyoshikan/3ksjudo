@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3Ks Judo Club</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* CSS animations for fade-in effects */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-out;
+        }
+    </style>
+    <script src="scripts.js" defer></script> <!-- Ensure your JavaScript file is linked here -->
+</head>
+<body>
+    <header>
+        <h1>Welcome to 3Ks Judo Club</h1>
+        <nav>
+            <ul>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#team">Our Team</a></li>
+                <li><a href="#schedule">Schedule</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#blog">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="about" class="fade-in">
+            <h2>About Our Club</h2>
+            <p>Insight into the club's founding, mission, and ethos.</p>
+            <a href="about.html">Learn More</a> <!-- These links should be internal links or JS hooks if not separate pages -->
+        </section>
+        <section id="team" class="fade-in">
+            <h2>Our Team</h2>
+            <p>Meet the talented individuals behind our club's success.</p>
+            <a href="team.html">Meet the Team</a>
+        </section>
+        <section id="schedule" class="fade-in">
+            <h2>Training Schedule</h2>
+            <p>Details on training times, locations, and upcoming events.</p>
+            <a href="schedule.html">View Schedule</a>
+        </section>
+        <section id="shop" class="fade-in">
+            <h2>Our Shop</h2>
+            <p>Explore our selection of high-quality judo gear and apparel.</p>
+            <a href="shop.html">Visit Shop</a>
+        </section>
+        <section id="blog" class="fade-in">
+            <h2>Latest News</h2>
+            <p>Stay up-to-date with the latest news, events, and insights from our club.</p>
+            <a href="blog.html">Read More</a>
+        </section>
+    </main>
+    <footer>
+        <p>© 2024 3Ks Judo Club. All rights reserved.</p>
+    </footer>
+    <!-- Modal Implementation -->
+    <div id="modal" style="display:none;">
+        <div class="modal-content">
+            <span id="close-modal" style="cursor:pointer;">&times; Close</span>
+            <p>More information about the team member...</p>
+        </div>
+    </div>
+</body>
+</html>
