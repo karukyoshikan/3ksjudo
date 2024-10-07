@@ -735,27 +735,37 @@ header .navbar a:hover {
     font-size: 1.2rem;
     color: var(--grey);
 }
+
+/* Opening Hours*/
+h1 {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+p {
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    color: #A299AC;
+}
+
 /* Highlight des aktuellen Tages */
 table {
-    border-collapse: collapse;
+border-collapse: collapse;
 }
 
 #activerow {
-    border: 0.5px solid #8CC63F;    
+    border: 0.5px solid #8CC63F;
 }
-#activerow > th {
-    color: #8CC63F;
-    font-weight: 600;
-}
-    #activerow > td {
+
+#activerow > td {
     color: #8CC63F;
     font-weight: 600;
 }
 
 #activerow > td > span {
-    color: #8CC63F;
-}
-#activerow > th > span {
     color: #8CC63F;
 }
 
@@ -778,24 +788,8 @@ table {
     text-transform: uppercase;
     padding: 1em;
 }
-.fvl-d > th {
-    font-size: 12px;
-    font-weight: 400;
-    letter-spacing: 1.2px;
-    color: #A299AC;
-    text-transform: uppercase;
-    padding: 1em;
-}
 
 .fvl-d > td > span {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 1.2px;
-    color: #A299AC;
-    text-transform: uppercase;
-}
-
-.fvl-d > th > span {
     font-size: 12px;
     font-weight: 600;
     letter-spacing: 1.2px;
@@ -809,10 +803,6 @@ table {
     font-size: 14px;
     padding: 15px 5px;
 }
-.fvl-d > th {
-    font-size: 14px;
-    padding: 15px 5px;
-}
 
 #activerow {
     border: none;
@@ -823,17 +813,11 @@ table {
     color: white;
     font-weight: 600;
 }
-#activerow > th {
-    color: white;
-    font-weight: 600;
-}
+
 #activerow > td > span {
     color: white;
 }
 
-#activerow > th > span {
-    color: white;
-}
 }
 /* Subscribe Section */
 .subscribe .row {
