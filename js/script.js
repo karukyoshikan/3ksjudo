@@ -1,23 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const galleryButtons = document.querySelectorAll('.gallery .button'); // Select all gallery buttons
-    const gallerySlides = document.querySelectorAll('.gallery .slide_div'); // Select all gallery image containers
-    const imgContainer = document.querySelector('.gallery .imgContainer'); // Select the container that holds all images
+    const galleryButtons = document.querySelectorAll('.gallery .button');
+    const gallerySlides = document.querySelectorAll('.gallery .slide_div');
+    const imgContainer = document.querySelector('.gallery .imgContainer');
 
-    let currentIndex = 0; // Track the current index of the focused image
-    const totalSlides = gallerySlides.length; // Get the total number of slides
+    let currentIndex = 0;
+    const totalSlides = gallerySlides.length;
 
-    // Determine if the device is mobile or desktop
     const isMobile = window.innerWidth <= 768;
-    const isIOS = navigator.userAgent.match(/(iPod|iPhone|iPad)/i); // Detect iOS devices
+    const isIOS = navigator.userAgent.match(/(iPod|iPhone|iPad)/i);
 
-    // Function to handle image interaction (enlarge or view mode)
     const handleImageInteraction = (index) => {
         if (isMobile) {
-            imgContainer.scrollLeft = gallerySlides[index].offsetLeft - 10; // Scroll to the selected image on mobile
+            imgContainer.scrollLeft = gallerySlides[index].offsetLeft - 10;
         } else {
             if (gallerySlides[index].classList.contains('enlarge')) {
                 gallerySlides[index].classList.remove('enlarge');
-                imgContainer.style.transform = `translateX(${currentIndex * -240}px)`; // Reset to the current position
+                imgContainer.style.transform = `translateX(${currentIndex * -240}px)`;
                 return;
             }
             gallerySlides.forEach(slide => slide.classList.remove('enlarge'));
@@ -32,7 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             imgContainer.style.transform = `translateX(${translateValue}px)`;
 
-            // Desktop: Auto reset to the first image when the last is clicked
             if (currentIndex === totalSlides - 1) {
                 setTimeout(() => {
                     imgContainer.style.transition = 'none';
@@ -49,26 +46,22 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // Apply event listeners for click and touch events
     galleryButtons.forEach((button, index) => {
         button.addEventListener('click', () => handleImageInteraction(index));
-        button.addEventListener('touchstart', () => handleImageInteraction(index), { passive: false }); // Added { passive: false } for Safari compatibility
+        button.addEventListener('touchstart', () => handleImageInteraction(index), { passive: false });
     });
 
-    // Add horizontal scroll event listener for mobile
     imgContainer.addEventListener('scroll', () => {
         if (isMobile) {
-            // Check if the user has scrolled to the last image
             const maxScrollLeft = imgContainer.scrollWidth - imgContainer.clientWidth;
             if (Math.abs(imgContainer.scrollLeft - maxScrollLeft) <= 10) {
                 setTimeout(() => {
-                    imgContainer.scrollLeft = 0; // Scroll back to the first image
-                }, 1000); // Add a short delay before resetting
+                    imgContainer.scrollLeft = 0;
+                }, 1000);
             }
         }
     });
 
-    // Lazy load images
     const lazyImages = document.querySelectorAll('.lazy');
     const options = {
         root: null,
@@ -91,7 +84,6 @@ document.addEventListener("DOMContentLoaded", () => {
         imageObserver.observe(image);
     });
 
-    // Scroll to top functionality
     const scrollTopBtn = document.getElementById('scroll-top');
     window.addEventListener('scroll', () => {
         if (window.pageYOffset > 100) {
@@ -108,14 +100,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Toggle menu
     const menuBar = document.getElementById('menu-bar');
     const navbar = document.querySelector('.navbar');
     menuBar.addEventListener('click', () => {
         navbar.classList.toggle('active');
     });
 
-    // Close menu after link click
     const navLinks = document.querySelectorAll('.navbar a');
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
@@ -123,15 +113,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Navbar smooth scrolling to sections
-    const navbarLinks = document.querySelectorAll('.gallery-nav a'); // Select all navbar links
+    const navbarLinks = document.querySelectorAll('.gallery-nav a');
     navbarLinks.forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            const targetId = this.getAttribute('href').substring(1); // Get target section ID
+            const targetId = this.getAttribute('href').substring(1);
             const targetElement = document.getElementById(targetId);
 
-            // Smooth scroll to the section
             window.scrollTo({
                 top: targetElement.offsetTop,
                 behavior: 'smooth'
@@ -139,7 +127,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Highlight active section in navbar based on scroll
     const sections = document.querySelectorAll('section');
     window.addEventListener('scroll', () => {
         const scrollPos = window.scrollY || window.pageYOffset;
@@ -150,16 +137,15 @@ document.addEventListener("DOMContentLoaded", () => {
             if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
                 const currentId = section.getAttribute('id');
                 navbarLinks.forEach(link => {
-                    link.classList.remove('active'); // Remove 'active' class from all links
+                    link.classList.remove('active');
                     if (link.getAttribute('href').substring(1) === currentId) {
-                        link.classList.add('active'); // Add 'active' class to the current link
+                        link.classList.add('active');
                     }
                 });
             }
         });
     });
 
-    // Loader fade out
     function fadeOutLoader() {
         const loaderContainer = document.querySelector('.loader-container');
         loaderContainer.classList.add('fade-out');
@@ -171,7 +157,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     window.onload = init;
 
-    // Time-based active row highlight
     const time = () => {
         const monday = document.querySelector('.monday');
         const tuesday = document.querySelector('.tuesday');
@@ -215,7 +200,6 @@ gradeButtons.forEach(button => {
         const targetId = button.getAttribute('data-target');
         const targetElement = document.getElementById(targetId);
 
-        // Close all other grade details
         const allGradeDetails = document.querySelectorAll('.grade-details');
         allGradeDetails.forEach(detail => {
             if (detail.id !== targetId) {
@@ -223,7 +207,6 @@ gradeButtons.forEach(button => {
             }
         });
 
-        // Toggle the clicked grade details
         if (targetElement) {
             targetElement.classList.toggle('active');
         } else {
