@@ -207,27 +207,26 @@ document.addEventListener("DOMContentLoaded", () => {
     time();
 });
 
-  // Handle "Learn More" button clicks in Grades section
-    const gradeButtons = document.querySelectorAll('.grade-box .btn');
-    gradeButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const targetId = button.getAttribute('data-target');
-            const targetElement = document.getElementById(targetId);
+// Handle "Learn More" button clicks in Grades section
+const gradeButtons = document.querySelectorAll('.grade-box .btn');
+gradeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const targetId = button.getAttribute('data-target');
+        const targetElement = document.getElementById(targetId);
 
-            // Close all other grade details
-            const allGradeDetails = document.querySelectorAll('.grade-details');
-            allGradeDetails.forEach(detail => {
-                if (detail.id !== targetId) {
-                    detail.classList.remove('active');
-                }
-            });
-
-            // Toggle the clicked grade details
-            if (targetElement) {
-                targetElement.classList.toggle('active');
-                console.log(`Toggled visibility for: ${targetId}`);
-            } else {
-                console.error(`No element found with ID: ${targetId}`);
+        // Close all other grade details
+        const allGradeDetails = document.querySelectorAll('.grade-details');
+        allGradeDetails.forEach(detail => {
+            if (detail.id !== targetId) {
+                detail.classList.remove('active');
             }
         });
+
+        // Toggle the clicked grade details
+        if (targetElement) {
+            targetElement.classList.toggle('active');
+        } else {
+            console.error(`No element found with ID: ${targetId}`);
+        }
     });
+});

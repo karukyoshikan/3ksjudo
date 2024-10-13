@@ -240,8 +240,14 @@ header .navbar a:hover {
     transition: opacity 0.8s ease, transform 0.5s ease; /* Smooth appearance */
 }
 
-/* Hover Effect to Make Content Visible */
+/* Hover Effect to Make Content Visible on Desktop */
 .speciality .box-container .box:hover .content {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Active state for mobile taps */
+.speciality .box.active .content {
     opacity: 1;
     transform: translateY(0);
 }
