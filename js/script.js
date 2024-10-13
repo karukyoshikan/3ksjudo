@@ -8,11 +8,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Determine if the device is mobile or desktop
     const isMobile = window.innerWidth <= 768;
+    const isIOS = navigator.userAgent.match(/(iPod|iPhone|iPad)/i); // Detect iOS devices
 
     // Function to handle image interaction (enlarge or view mode)
     const handleImageInteraction = (index) => {
         if (isMobile) {
-            imgContainer.scrollLeft = gallerySlides[index].offsetLeft - 10; // Scroll to the selected image
+            imgContainer.scrollLeft = gallerySlides[index].offsetLeft - 10; // Scroll to the selected image on mobile
         } else {
             if (gallerySlides[index].classList.contains('enlarge')) {
                 gallerySlides[index].classList.remove('enlarge');
@@ -31,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             imgContainer.style.transform = `translateX(${translateValue}px)`;
 
-            // Desktop: Auto reset to the first image when last is clicked
+            // Desktop: Auto reset to the first image when the last is clicked
             if (currentIndex === totalSlides - 1) {
                 setTimeout(() => {
                     imgContainer.style.transition = 'none';

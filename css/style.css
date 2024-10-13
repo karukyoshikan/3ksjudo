@@ -319,7 +319,13 @@ header .navbar a:hover {
     }
 }
 
-
+/* Safari-specific rendering fix */
+.speciality .box-container .box {
+    -webkit-transform: translateZ(0); /* Force 3D rendering */
+    -webkit-backface-visibility: hidden; /* Prevent flickering */
+    backface-visibility: hidden;
+    perspective: 1000;
+}
 
 
 .popular .logo-container {
