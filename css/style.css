@@ -179,152 +179,82 @@ header .navbar a:hover {
     padding: 1rem 0;
 }
 
-/* Speciality Section: Flexbox Layout for Boxes */
-.speciality .box-container {
-    display: -webkit-box; /* Old Safari */
-    display: -webkit-flex; /* Safari 8+ */
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    justify-content: center;
-}
-
-/* Logo in the Speciality Section */
-.speciality .logo-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-.speciality .center-logo {
-    max-width: 100px;
-    max-height: 100px;
-}
-
-/* Box Styling in Speciality Section */
-.speciality .box-container .box {
-    flex: 1 1 30rem;
-    position: relative;
-    overflow: hidden;
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
-    border: .1rem solid rgba(0, 0, 0, .3);
-    cursor: pointer;
-    border-radius: .5rem;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-
-    /* Safari specific fix for transform and transition */
-    -webkit-transform: scale(1);
-    -webkit-transition: box-shadow 0.3s ease, -webkit-transform 0.3s ease;
-}
-
-/* Box Height for Larger Screens */
-@media (min-width: 769px) {
-    .speciality .box-container .box {
-        height: 400px;
-    }
-}
-
-/* Hover Effect for Box */
-.speciality .box-container .box:hover {
-    transform: scale(1.02); /* Slightly enlarges the box */
-    box-shadow: 0 .7rem 1.5rem rgba(0, 0, 0, .2);
-
-    /* Safari specific fix for hover transform */
-    -webkit-transform: scale(1.02);
-}
-
-/* Content Inside the Box */
-.speciality .box-container .box .content {
+/* General Styling */
+#speciality {
+    padding: 50px 20px;
     text-align: center;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 2rem;
-    position: relative;
-    z-index: 2;
-    opacity: 0;
-    transform: translateY(10px); /* Fade-in effect on hover */
-    transition: opacity 0.8s ease, transform 0.5s ease; /* Smooth appearance */
-
-    /* Safari specific fix for transform and transition */
-    -webkit-transform: translateY(10px);
-    -webkit-transition: opacity 0.8s ease, -webkit-transform 0.5s ease;
+    background-color: #f9f9f9;
 }
 
-/* Hover Effect to Make Content Visible on Desktop */
-.speciality .box-container .box:hover .content {
-    opacity: 1;
-    transform: translateY(0);
-
-    /* Safari specific fix for transform */
-    -webkit-transform: translateY(0);
-}
-
-/* Active state for mobile taps */
-.speciality .box.active .content {
-    opacity: 1;
-    transform: translateY(0);
-
-    /* Safari specific fix for transform */
-    -webkit-transform: translateY(0);
-}
-
-/* Headings Inside the Content Box */
-.speciality .box-container .box .content h3 {
-    font-size: 2.5rem;
+#speciality h2 {
+    font-size: 3rem;
+    margin-bottom: 30px;
     color: #333;
 }
 
-/* Paragraphs Inside the Content Box */
-.speciality .box-container .box .content p {
-    font-size: 1.6rem;
+/* Speciality Grid Layout */
+.speciality-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive columns */
+    gap: 20px;
+    justify-items: center;
+}
+
+/* Speciality Box Styling */
+.speciality-box {
+    background-color: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    max-width: 400px; /* Maximum width for each box */
+    width: 100%; /* Make sure it scales down responsively */
+}
+
+.speciality-box img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.speciality-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.speciality-box:hover img {
+    transform: scale(1.1);
+}
+
+.speciality-box .content {
+    padding: 20px;
+}
+
+.speciality-box h3 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.speciality-box p {
+    font-size: 1.4rem;
     color: #666;
-    padding: 1rem 0;
 }
 
-/* Speciality Section Layout for Tablets */
+/* Responsive Layout for Small Screens */
 @media (max-width: 768px) {
-    .speciality .box-container {
-        flex-direction: column;
-        align-items: center;
+    .speciality-grid {
+        grid-template-columns: 1fr; /* Single column layout on smaller screens */
     }
 
-    .speciality .box-container .box {
-        width: 90%;
+    #speciality h2 {
+        font-size: 2.5rem; /* Slightly smaller heading for small screens */
     }
 
-    .speciality .box-container .box .content h3 {
-        font-size: 2rem;
+    .speciality-box {
+        max-width: 100%; /* Take full width on mobile screens */
     }
-
-    .speciality .box-container .box .content p {
-        font-size: 1.4rem;
-    }
-}
-
-/* Speciality Section Layout for Small Screens (Mobile) */
-@media (max-width: 480px) {
-    .speciality .box-container .box .content {
-        padding: 1rem;
-    }
-
-    .speciality .box-container .box .content h3 {
-        font-size: 1.8rem;
-    }
-
-    .speciality .box-container .box .content p {
-        font-size: 1.2rem;
-    }
-}
-
-/* Safari-specific rendering fix */
-.speciality .box-container .box {
-    -webkit-transform: translateZ(0); /* Force 3D rendering */
-    -webkit-backface-visibility: hidden; /* Prevent flickering */
-    backface-visibility: hidden;
-    perspective: 1000;
 }
 
 
