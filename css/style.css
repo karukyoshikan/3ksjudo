@@ -243,7 +243,7 @@ header .navbar a:hover {
     background: rgba(255, 255, 255, 0.8);
     padding: 2rem;
     position: relative;
-    z-index: 1;
+    z-index: 2;
     opacity: 0;
     transform: translateY(10px); /* Fade-in effect on hover */
     transition: opacity 0.8s ease, transform 0.5s ease; /* Smooth appearance */
@@ -319,8 +319,21 @@ header .navbar a:hover {
     }
 }
 
+/* Added fallback for older browsers that don't support opacity and transform */
+.speciality .box-container .box .content {
+    opacity: 1; /* Default visible if animations aren't supported */
+    transform: none; /* No animation fallback */
+    -webkit-transform: none;
+}
 
-
+/* Add z-index for mobile view if needed to resolve stacking issues */
+@media (max-width: 768px) {
+    .speciality .box-container .box .content {
+        opacity: 1; /* Always visible on mobile */
+        transform: none; /* Disable hover effect on mobile */
+        -webkit-transform: none;
+    }
+}
 
 .popular .logo-container {
     display: flex;
