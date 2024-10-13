@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Apply event listeners for click and touch events
     galleryButtons.forEach((button, index) => {
         button.addEventListener('click', () => handleImageInteraction(index));
-        button.addEventListener('touchstart', () => handleImageInteraction(index));
+        button.addEventListener('touchstart', () => handleImageInteraction(index), { passive: false }); // Added { passive: false } for Safari compatibility
     });
 
     // Add horizontal scroll event listener for mobile

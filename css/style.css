@@ -181,6 +181,8 @@ header .navbar a:hover {
 
 /* Speciality Section: Flexbox Layout for Boxes */
 .speciality .box-container {
+    display: -webkit-box; /* Old Safari */
+    display: -webkit-flex; /* Safari 8+ */
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
@@ -213,6 +215,10 @@ header .navbar a:hover {
     background-position: center;
     background-repeat: no-repeat;
     transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+    /* Safari specific fix for transform and transition */
+    -webkit-transform: scale(1);
+    -webkit-transition: box-shadow 0.3s ease, -webkit-transform 0.3s ease;
 }
 
 /* Box Height for Larger Screens */
@@ -226,6 +232,9 @@ header .navbar a:hover {
 .speciality .box-container .box:hover {
     transform: scale(1.02); /* Slightly enlarges the box */
     box-shadow: 0 .7rem 1.5rem rgba(0, 0, 0, .2);
+
+    /* Safari specific fix for hover transform */
+    -webkit-transform: scale(1.02);
 }
 
 /* Content Inside the Box */
@@ -238,18 +247,28 @@ header .navbar a:hover {
     opacity: 0;
     transform: translateY(10px); /* Fade-in effect on hover */
     transition: opacity 0.8s ease, transform 0.5s ease; /* Smooth appearance */
+
+    /* Safari specific fix for transform and transition */
+    -webkit-transform: translateY(10px);
+    -webkit-transition: opacity 0.8s ease, -webkit-transform 0.5s ease;
 }
 
 /* Hover Effect to Make Content Visible on Desktop */
 .speciality .box-container .box:hover .content {
     opacity: 1;
     transform: translateY(0);
+
+    /* Safari specific fix for transform */
+    -webkit-transform: translateY(0);
 }
 
 /* Active state for mobile taps */
 .speciality .box.active .content {
     opacity: 1;
     transform: translateY(0);
+
+    /* Safari specific fix for transform */
+    -webkit-transform: translateY(0);
 }
 
 /* Headings Inside the Content Box */
@@ -299,6 +318,7 @@ header .navbar a:hover {
         font-size: 1.2rem;
     }
 }
+
 
 
 
