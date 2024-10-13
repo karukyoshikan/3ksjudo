@@ -319,21 +319,8 @@ header .navbar a:hover {
     }
 }
 
-/* Added fallback for older browsers that don't support opacity and transform */
-.speciality .box-container .box .content {
-    opacity: 1; /* Default visible if animations aren't supported */
-    transform: none; /* No animation fallback */
-    -webkit-transform: none;
-}
 
-/* Add z-index for mobile view if needed to resolve stacking issues */
-@media (max-width: 768px) {
-    .speciality .box-container .box .content {
-        opacity: 1; /* Always visible on mobile */
-        transform: none; /* Disable hover effect on mobile */
-        -webkit-transform: none;
-    }
-}
+
 
 .popular .logo-container {
     display: flex;
