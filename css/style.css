@@ -151,6 +151,7 @@ header .navbar a:hover {
     flex: 1 1 40rem;
 }
 
+/* Keep the floating animation for the home image */
 .home .image img {
     width: 100%;
     padding: 1rem;
@@ -166,6 +167,7 @@ header .navbar a:hover {
     }
 }
 
+/* Home Section Content Styling */
 .home .content h1 {
     font-size: 5rem;
     color: #333;
@@ -177,6 +179,7 @@ header .navbar a:hover {
     padding: 1rem 0;
 }
 
+/* Speciality Section: Flexbox Layout for Boxes */
 .speciality .box-container {
     display: flex;
     flex-wrap: wrap;
@@ -184,6 +187,7 @@ header .navbar a:hover {
     justify-content: center;
 }
 
+/* Logo in the Speciality Section */
 .speciality .logo-container {
     display: flex;
     flex-direction: column;
@@ -196,6 +200,7 @@ header .navbar a:hover {
     max-height: 100px;
 }
 
+/* Box Styling in Speciality Section */
 .speciality .box-container .box {
     flex: 1 1 30rem;
     position: relative;
@@ -204,24 +209,26 @@ header .navbar a:hover {
     border: .1rem solid rgba(0, 0, 0, .3);
     cursor: pointer;
     border-radius: .5rem;
-    background-size: contain; /* Use 'contain' to fit the whole image without cropping */
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    animation: float 6s ease-in-out infinite;
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
+/* Box Height for Larger Screens */
 @media (min-width: 769px) {
     .speciality .box-container .box {
-        height: 400px; /* Adjust the height for larger screens */
+        height: 400px;
     }
 }
 
+/* Hover Effect for Box */
 .speciality .box-container .box:hover {
     transform: scale(1.02); /* Slightly enlarges the box */
     box-shadow: 0 .7rem 1.5rem rgba(0, 0, 0, .2);
 }
 
+/* Content Inside the Box */
 .speciality .box-container .box .content {
     text-align: center;
     background: rgba(255, 255, 255, 0.8);
@@ -230,34 +237,29 @@ header .navbar a:hover {
     z-index: 1;
     opacity: 0;
     transform: translateY(10px); /* Fade-in effect on hover */
-    transition: opacity 0.8s ease, transform 0.s ease;
+    transition: opacity 0.8s ease, transform 0.5s ease; /* Smooth appearance */
 }
 
+/* Hover Effect to Make Content Visible */
 .speciality .box-container .box:hover .content {
     opacity: 1;
     transform: translateY(0);
 }
 
+/* Headings Inside the Content Box */
 .speciality .box-container .box .content h3 {
     font-size: 2.5rem;
     color: #333;
 }
 
+/* Paragraphs Inside the Content Box */
 .speciality .box-container .box .content p {
     font-size: 1.6rem;
     color: #666;
     padding: 1rem 0;
 }
 
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
+/* Speciality Section Layout for Tablets */
 @media (max-width: 768px) {
     .speciality .box-container {
         flex-direction: column;
@@ -277,6 +279,7 @@ header .navbar a:hover {
     }
 }
 
+/* Speciality Section Layout for Small Screens (Mobile) */
 @media (max-width: 480px) {
     .speciality .box-container .box .content {
         padding: 1rem;
@@ -289,8 +292,8 @@ header .navbar a:hover {
     .speciality .box-container .box .content p {
         font-size: 1.2rem;
     }
-
 }
+
 
 
 .popular .logo-container {
